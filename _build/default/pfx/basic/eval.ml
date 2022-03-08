@@ -14,25 +14,14 @@ let step state =
   match state with
   | [], _ -> Error("Nothing to step",state)
   (* Valid configurations *)
-  | Push :: Num i::q , stack          -> Ok (q, i::stack)
-  | Push :: _, _                       -> Error("Lack arguments",state)
-  | _ :: q , []          -> Error("Empty stack",state)
-
-  | Pop :: q , v1::stack          -> Ok (q, stack)
-
-  | Swap :: q , v1::v2::stack          -> Ok (q, v2::v1::stack)
-  | _ :: q , v1::[]         -> Error("Not enought elements in stack",state)
-
-  | Add :: q , v1::v2::stack          -> Ok (q, v1+v2::stack)
-  | Mul :: q , v1::v2::stack           -> Ok (q, v1*v2::stack)
-  | Div :: q , v1::v2::stack           -> Ok (q, v1/v2::stack)
-  | Div :: q , v1::0::stack           ->  Error("Cannot divided by 0",state)
-
-  | Sub :: q , v1::v2::stack           -> Ok (q, v1-v2::stack)
-  | Rem :: q , v1::v2::stack           -> Ok (q, v1 mod v2::stack)
-  | Rem :: q , v1::0::stack           ->  Error("Cannot divided by 0",state)
-
-
+  | Push :: q , stack          -> Ok (q, stack)
+  | Pop :: q , stack          -> Ok (q, stack)
+  | Swap :: q , stack          -> Ok (q, stack)
+  | Add :: q , stack          -> Ok (q, stack)
+  | Mul :: q , stack          -> Ok (q, stack)
+  | Div :: q , stack          -> Ok (q, stack)
+  | Sub :: q , stack          -> Ok (q, stack)
+  | Rem :: q , stack          -> Ok (q, stack)
 
 let eval_program (numargs, cmds) args =
   let rec execute = function
