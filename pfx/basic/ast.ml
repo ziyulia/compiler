@@ -6,7 +6,8 @@ type command =
 |Div
 |Mul
 |Rem
-|Sub;;
+|Sub
+|Num of int;; 
 
 type program = int * command list
 
@@ -20,7 +21,8 @@ let string_of_command = function
 |Div -> "div"
 |Mul -> "mul"
 |Rem -> "rem"
-|Sub -> "sub";;
+|Sub -> "sub"
+|Num i -> string_of_int i ;;
 
 let string_of_commands cmds = String.concat " " (List.map string_of_command cmds);;
 
