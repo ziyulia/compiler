@@ -16,21 +16,23 @@ let step state =
   (* Valid configurations *)
   | Push :: Num i::q , stack          -> Ok (q, i::stack)
   | Push :: _, _                       -> Error("Lack arguments",state)
-  | _ :: q , []          -> Error("Empty stack",state)
+  | _ :: _ , []          -> Error("Empty stack",state)
+  | Num _::_, _::_ -> Error("Lack commond instruction", state)
 
-  | Pop :: q , v1::stack          -> Ok (q, stack)
+  | Pop :: q , _::stack          -> Ok (q, stack)
 
   | Swap :: q , v1::v2::stack          -> Ok (q, v2::v1::stack)
-  | _ :: q , v1::[]         -> Error("Not enought elements in stack",state)
+  | (Swap | Add | Mul | Div | Rem | Sub) :: _ , v1::[]         -> Error("Not enought elements in stack is : " ^ (string_of_int v1),state)
 
   | Add :: q , v1::v2::stack          -> Ok (q, v1+v2::stack)
+  
   | Mul :: q , v1::v2::stack           -> Ok (q, v1*v2::stack)
   | Div :: q , v1::v2::stack           -> Ok (q, v1/v2::stack)
-  | Div :: q , v1::0::stack           ->  Error("Cannot divided by 0",state)
+  (* | Div :: q , v1::0::stack           ->  Error("Cannot divided by 0",state) *)
 
   | Sub :: q , v1::v2::stack           -> Ok (q, v1-v2::stack)
   | Rem :: q , v1::v2::stack           -> Ok (q, v1 mod v2::stack)
-  | Rem :: q , v1::0::stack           ->  Error("Cannot divided by 0",state)
+  (* | Rem :: q , v1::0::stack           ->  Error("Cannot divided by 0",state) *)
 
 
 

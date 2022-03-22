@@ -7,10 +7,12 @@ type command =
 |Mul
 |Rem
 |Sub
-|Num of int;; 
+|Num of int;;
+(* |Command of command list;; *)
 
-type program = int * command list
 
+
+type program = int * command list;;
 (* add here all useful functions and types  related to the AST: for instance  string_of_ functions *)
 
 let string_of_command = function
