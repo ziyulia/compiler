@@ -20,3 +20,6 @@ let rec generate = function
   | Uminus e -> generate e @ Push :: Num 0 :: Sub :: []
 
   | Var _ -> failwith "Not yet supported"
+  
+  (* | App(e1,e2) -> generate e1 @ generate e2
+  | Fun(id,e) ->  *)

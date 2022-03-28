@@ -8,7 +8,8 @@
  **************)
 
 (* enter tokens here, they should begin with %token *)
-%token  EOF PUSH POP SWAP ADD DIV MUL REM SUB 
+ (* question 9.3 *)
+%token  EOF PUSH POP SWAP ADD DIV MUL REM SUB EXEC GET LPAR RPAR
 %token <int> INT
 
 
@@ -40,6 +41,9 @@ expr:
 |MUL   e = expr {Mul::e}
 |REM   e = expr {Rem::e}
 |SUB   e = expr {Sub::e}
+|EXEC  e = expr {Exec::e}
+|GET   e = expr {Get ::e}
+|LPAR  e = expr RPAR e1 = expr {Lambda e::e1}
 |EOF {[]}
 
 

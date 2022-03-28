@@ -55,7 +55,12 @@ rule token = parse
   | "pop"    {POP}
   | "swap"    {SWAP}
   | "mul"    {MUL}
-
+  (* question 9.3 *)
+  | "("       {LPAR}
+  |")"        {RPAR}
+  |"exec"     {EXEC}
+  |"get"      {GET}
+  
   (* illegal characters *)
   (* Exercise 7  *)
   (* Modify  code from the previous exercise to be able to return the location of errors. *)

@@ -1,1 +1,1 @@
-val eval_program: Ast.program -> int list -> unit
+val eval_program: Ast.program -> Ast.command list -> unit

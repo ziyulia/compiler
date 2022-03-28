@@ -8,7 +8,10 @@ type command =
 |Mul
 |Rem
 |Sub
-|Num of int;; 
+|Num of int
+|Exec
+|Get
+|Lambda of command list;;
 
 (* The type for programs *)
 type program = int * command list
