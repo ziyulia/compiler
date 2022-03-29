@@ -1,28 +1,22 @@
 AUTHORS
 -------
 
-- NAME1
-- NAME2
-…
+- Yao-Hua XU
+- Ziyu LIU
 
 ===============
 
 Description of the project
 --------------------------
 
-This μ-project is a very simple compiler…
+The objective of the project is to develop a compiler
 
 ===============
 
 Sources
 -------
 
-Git repository: https://redmine-df.telecom-bretagne.eu/git/PROJECTNAME
-
-(obviously, you _will_ use a version control system such as Git, IMT
-Atlantique provides a project management platform: use it!)
-
-Release : tag 1.0 or commit acdeacdacdacdacd
+We use github for version control
 
 ===============
 
@@ -31,11 +25,11 @@ How to…
 
 …retrieve the sources?
 
-  git clone https://redmine-df.telecom-bretagne.eu/git/PROJECTNAME
+  git clone https://github.com/ziyulia/compiler.git
 
 …compile?
 
-  dune …
+  dune build
 
 …execute and test?
 
@@ -69,7 +63,7 @@ project
 │   │   ├── parser.mly
 │   │   ├── tests: for tests
 │   │   │   └── an_example.expr
-│   │   ├── toPfx.ml             <- To edit
+│   │   ├── toPfx.ml            
 │   │   └── toPfx.mli
 │   ├── common
 │   │   ├── binOp.ml
@@ -80,18 +74,23 @@ project
 │   ├── fun: the expr parser for section 7
 │   │   ├── ast.ml
 │   │   ├── ast.mli
+|   │   ├── dune
+│   │   ├── eval.ml
+│   │   ├── eval.mli
 │   │   ├── lexer.mll
-│   │   └── parser.mly
+│   │   |── parser.mly
+│   │   ├── toPfx.ml            
+│   │   └── toPfx.mli
 │   └── main.ml
 ├── pfx: the pfx VM
 │   ├── basic
-│   │   ├── ast.ml               <- To edit
+│   │   ├── ast.ml               
 │   │   ├── ast.mli
 │   │   ├── dune
-│   │   ├── eval.ml              <- To edit
+│   │   ├── eval.ml              
 │   │   ├── eval.mli
-│   │   ├── lexer.mll            <- To edit
-│   │   ├── parser.mly           <- To edit
+│   │   ├── lexer.mll           
+│   │   ├── parser.mly           
 │   │   └── tests: for tests
 │   │       └── ok_prog.pfx
 │   └── pfxVM.ml: main file for the pfx VM
@@ -104,7 +103,7 @@ project
 Progress
 --------
 
-- We stopped at question 10.1 (proof of derivation)
+- We stopped at question 10.4 (proof of derivation)
 - There is still a bug in question 8.3 (new version of generate function)
 - …
 
@@ -132,7 +131,7 @@ Helpful resources
 
 Difficulties
 ------------
-
+- the systax of ocaml is extremely difficult 
 - team programming: having to use a VCS such as git and avoiding conflicts
 - thinking functional
 - changing habits by using an unknown language

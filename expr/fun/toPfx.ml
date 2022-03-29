@@ -21,5 +21,5 @@ let rec generate = function
 
   | Var _ -> failwith "Not yet supported"
   
-  (* | App(e1,e2) -> generate e1 @ generate e2
-  | Fun(id,e) ->  *)
+  | Fun(_,e) -> Lambda (generate e) 
+  | App(e1,e2) -> generate e1 @ generate e2
