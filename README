@@ -56,7 +56,6 @@ project
 │   ├── basic
 │   │   ├── ast.ml
 │   │   ├── ast.mli
-│   │   ├── dune
 │   │   ├── eval.ml
 │   │   ├── eval.mli
 │   │   ├── lexer.mll
@@ -103,9 +102,8 @@ project
 Progress
 --------
 
-- We stopped at question 10.4 (proof of derivation)
-- There is still a bug in question 8.3 (new version of generate function)
-- …
+- We stopped at question 11 
+- The code regarding to question 7 in the pfx/lexer.mll file still need to be improved
 
 ===============
 
@@ -113,8 +111,7 @@ Know bugs and issues
 --------------------
 
 - We were not able to manage xxx…
-- Compiler fails when xxx…
-- …
+- Each time we tried to execute "dune exec file.exe" we got a permission denied error. 
 
 ===============
 
@@ -131,11 +128,10 @@ Helpful resources
 
 Difficulties
 ------------
-- the systax of ocaml is extremely difficult 
-- team programming: having to use a VCS such as git and avoiding conflicts
-- thinking functional
+- the systax of ocaml is extremely difficult to comprend
+- thinking all the patten match cases and reture the correspond result (ok or raise error)
+- thinking functionally
+- deduce the excuatation process with lambda (for instance (λx.x + 1) )
 - changing habits by using an unknown language
-- Not a single difficulty: the project was so easy that my 8-old brother did it
-  completely; the Ocaml language is so nice I enjoyed the project, …
-- …
+
 
