@@ -1,5 +1,6 @@
 {
   open Parser
+  open Utils
   (* type token =
   |Push 
   |Pop
@@ -24,9 +25,9 @@
   |Sub -> print_string "sub"
   |Num i -> print_int i ;; *)
 
-  let mk_int nb =
+   let mk_int nb loc =
     try INT (int_of_string nb)
-    with Failure _ -> failwith (Printf.sprintf "Illegal integer '%s': " nb)
+    with Failure _ -> raise (Location.Error(Printf.sprintf "Illegal integer '%s': " nb,loc))
 }
 
 let newline = (['\n' '\r'] | "\r\n")
@@ -45,7 +46,7 @@ rule token = parse
   (* comments *)
   | "--" not_newline_char*  { token lexbuf }
   (* integers *)
-  | digit+ as nb           { mk_int nb }
+  | digit+ as nb           { mk_int nb (Location.curr lexbuf)}
   (* commands  *)
   | "push"    {PUSH}
   | "add"    {ADD}
@@ -64,7 +65,8 @@ rule token = parse
   (* illegal characters *)
   (* Exercise 7  *)
   (* Modify  code from the previous exercise to be able to return the location of errors. *)
-  | _ as c                  { failwith (Printf.sprintf "Error at position %s %c" (string_of_int lexbuf.lex_curr_pos) c) }
+  | _ as c                  { raise (Location.Error(Printf.sprintf "Illegal character '%c': " c, Location.curr lexbuf)) }
+
 
 {
   let rec examine_all lexbuf =
