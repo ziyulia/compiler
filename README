@@ -43,18 +43,13 @@ Structure of the project
 
 The project is organized as following:
 
-Explain here the organization of your project, what is the use of each file or
-group of files, etc.
-
-You may also show the file tree as the following example:
-
 project
 ├── README
 ├── dune-project
 ├── expr: the expr compiler
 │   ├── README
 │   ├── basic
-│   │   ├── ast.ml
+│   │   ├── ast.ml           
 │   │   ├── ast.mli
 │   │   ├── eval.ml
 │   │   ├── eval.mli
@@ -62,7 +57,7 @@ project
 │   │   ├── parser.mly
 │   │   ├── tests: for tests
 │   │   │   └── an_example.expr
-│   │   ├── toPfx.ml            
+│   │   ├── toPfx.ml                    -- Exercise 5
 │   │   └── toPfx.mli
 │   ├── common
 │   │   ├── binOp.ml
@@ -76,20 +71,20 @@ project
 |   │   ├── dune
 │   │   ├── eval.ml
 │   │   ├── eval.mli
-│   │   ├── lexer.mll
-│   │   |── parser.mly
-│   │   ├── toPfx.ml            
+│   │   ├── lexer.mll                     -- Exercise 10,11
+│   │   |── parser.mly                    -- Exercise 10,11
+│   │   ├── toPfx.ml                      -- Exercise 10
 │   │   └── toPfx.mli
 │   └── main.ml
 ├── pfx: the pfx VM
 │   ├── basic
-│   │   ├── ast.ml               
+│   │   ├── ast.ml                        -- Exercise 4
 │   │   ├── ast.mli
 │   │   ├── dune
-│   │   ├── eval.ml              
+│   │   ├── eval.ml                       -- Exercise 4
 │   │   ├── eval.mli
-│   │   ├── lexer.mll           
-│   │   ├── parser.mly           
+│   │   ├── lexer.mll                     -- Exercise 6,7 
+│   │   ├── parser.mly                    -- Exercise 8
 │   │   └── tests: for tests
 │   │       └── ok_prog.pfx
 │   └── pfxVM.ml: main file for the pfx VM
@@ -102,15 +97,14 @@ project
 Progress
 --------
 
-- We stopped at question 11 
-- The code regarding to question 7 in the pfx/lexer.mll file still need to be improved
+- We stopped at question 12
 
 ===============
 
 Know bugs and issues
 --------------------
 
-- We were not able to manage xxx…
+- We were not able to manage Exercise 13
 - Each time we tried to execute "dune exec file.exe" we got a permission denied error. 
 
 ===============
@@ -118,11 +112,11 @@ Know bugs and issues
 Helpful resources
 -----------------
 
-- we used Stack Overflow to solve the problem of xxx :
-  https://stackoverflow/xxxxxxi
-  https://stackoverflow/yyyyyy
-- someone on GitHub provided an interesting example very similar to the answer of the question x.y : https://github.com/xxxx
-- …
+- OCaml - Lexer and parser generators (ocamllex, ocamlyacc) https://ocaml.org/manual/lexyacc.html
+- Error Handling OCaml https://ocaml.org/learn/tutorials/error_handling.html
+- OCaml lists https://ocaml.org/learn/tutorials/lists.html
+- Dune: depending on local module “Library not found” 
+https://discuss.ocaml.org/t/dune-depending-on-local-module-library-not-found/5793/2
 
 ===============
 
