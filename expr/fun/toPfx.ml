@@ -1,6 +1,9 @@
 open Ast
 open BasicPfx.Ast
 
+(* Question 10.3 (code):
+Provide a new version of generate. *)
+
 let rec generate_exec_seq = function 
   | Const x,n -> Push :: Num x :: [],n+1 
   (* | Const _ -> failwith "Not int" *)
@@ -25,8 +28,6 @@ let rec generate_exec_seq = function
     let pfx2,n2 = generate_exec_seq (e2,n) in (
     let pfx1,n1 = generate_exec_seq (e1,n2) in  pfx2 @ pfx1 @ Rem :: [],n1-1 )
 
-  (* | Binop(,,_) -> failwith "Not supported format" *)
-
   | Uminus e,n -> 
     let pfx,n1 = generate_exec_seq (e,n) in pfx @ Push :: Num 0 :: Sub :: [],n1
 
@@ -41,7 +42,6 @@ let rec generate_exec_seq = function
 
 let rec generate = function
   | Const x -> Push :: Num x :: []
-  (* | Const _ -> failwith "Not int" *)
 
   | Binop(BinOp.Badd, e1 , e2) -> generate e1 @ generate e2 @ Add :: []
 
@@ -53,13 +53,12 @@ let rec generate = function
 
   | Binop(BinOp.Bmod, e1 , e2) -> generate e1 @ generate e2 @ Swap :: Rem :: []
 
-  (* | Binop(,,_) -> failwith "Not supported format" *)
-
   | Uminus e -> generate e @ Push :: Num 0 :: Sub :: []
 
   | Var _ -> failwith "Not yet supported"
   
   | App(e1,e2) -> generate e2 @ Lambda (generate e1) :: Exec :: []
+
   | Fun(_,e) -> let x,_ = generate_exec_seq (e,0) in x;;
 
 

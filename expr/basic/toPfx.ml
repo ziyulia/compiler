@@ -1,9 +1,11 @@
 open Ast
 open BasicPfx.Ast
 
+  (* Question 5.2 (code):
+  Define a function generate implementing the semantics *)
+
 let rec generate = function
   | Const x -> Push :: Num x :: []
-  (* | Const _ -> failwith "Not int" *)
 
   | Binop(BinOp.Badd, e1 , e2) -> generate e1 @ generate e2 @ Add :: []
 
@@ -14,8 +16,6 @@ let rec generate = function
   | Binop(BinOp.Bdiv, e1 , e2) -> generate e1 @ generate e2 @ Swap :: Div :: []
 
   | Binop(BinOp.Bmod, e1 , e2) -> generate e1 @ generate e2 @ Swap :: Rem :: []
-
-  (* | Binop(_,_,_) -> failwith "Not supported format" *)
 
   | Uminus e -> generate e @ Push :: Num 0 :: Sub :: []
 

@@ -1,3 +1,5 @@
+(* Question 4.1 (code):
+Propose the OCaml code for a type command  *)
 type command =
 |Push 
 |Pop

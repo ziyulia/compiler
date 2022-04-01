@@ -1,34 +1,13 @@
 {
   open Parser
   open Utils
-  (* type token =
-  |Push 
-  |Pop
-  |Swap
-  |Add 
-  |Div
-  |Mul
-  |Rem
-  |Sub
-  (* |EOF *)
-  |Num of int;; 
-
-  let print_token = function
-  (* |EOF -> print_string "EOF" *)
-  |Push -> print_string "push"
-  |Pop -> print_string "pop"
-  |Swap -> print_string "swap"
-  |Add -> print_string "add"
-  |Div -> print_string "div"
-  |Mul -> print_string "mul"
-  |Rem -> print_string "rem"
-  |Sub -> print_string "sub"
-  |Num i -> print_int i ;; *)
-
    let mk_int nb loc =
     try INT (int_of_string nb)
     with Failure _ -> raise (Location.Error(Printf.sprintf "Illegal integer '%s': " nb,loc))
 }
+(* 
+Question 6.1 (code):
+Write a lexer for the Pfx stack machine language. *)
 
 let newline = (['\n' '\r'] | "\r\n")
 let blank = [' ' '\014' '\t' '\012']

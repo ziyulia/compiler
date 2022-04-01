@@ -11,7 +11,8 @@ let string_of_state (cmds,stack) =
    | cmd::_ -> Printf.sprintf "executing %s" (string_of_command cmd))^
     (Printf.sprintf " with stack %s" (string_of_stack stack));;
 
-(* Question 4.2 *)
+(* Question 4.2
+Write an OCaml function step that implements the small step reduction *)
 let step state =
   match state with
   | [], _ -> Error("Nothing to step",state)
