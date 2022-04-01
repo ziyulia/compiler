@@ -122,10 +122,10 @@ https://discuss.ocaml.org/t/dune-depending-on-local-module-library-not-found/579
 
 Difficulties
 ------------
+
 - the systax of ocaml is extremely difficult to comprend
-- thinking all the patten match cases and reture the correspond result (ok or raise error)
+- thinking all the patten match cases and design the correspond result (ok or raise error)
 - thinking functionally
 - deduce the excuatation process with lambda (for instance (λx.x + 1) )
-- changing habits by using an unknown language
 
 
